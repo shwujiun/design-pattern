@@ -1,4 +1,6 @@
-﻿LazySingleton instance = LazySingleton.GetLazySingleton();
-LazySingleton instance1 = LazySingleton.GetLazySingleton();
+﻿using singleton;
+
+HungrySingleton instance = HungrySingleton.GetInstance();
+HungrySingleton instance1 = HungrySingleton.GetInstance();
 
 Console.WriteLine(instance==instance1);
