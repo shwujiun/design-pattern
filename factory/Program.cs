@@ -1,51 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using factory;
 using System.Runtime.InteropServices;
 
-Factory.CreateProduct("A");
+
+//簡單工廠
+SimpleFactory.CreateProduct("A");
 
 
-class Factory
-{
+//抽象工廠
+IDatabasUtils utils = new OracleUtils();
+IConnection connection = utils.GetConnection(); 
+connection.connect();
+ICommand cmd = utils.GetCommand();
+cmd.command();
 
 
-    public static Product CreateProduct(string type)
-    {
-        Product p = null;
-        switch (type)
-        {
-            case "A":
-                p = new ProductA();
-                break;
-            case "B":
-                p = new ProductB();
-                break;
-            default:
-                throw new Exception("Error");
-        }
-        return p.CreateObj();
-    }
 
 
-}
 
-abstract class Product
-{
-    abstract public Product CreateObj();
-}
-
-class ProductA : Product
-{
-    public override Product CreateObj()
-    {
-        Console.WriteLine("ProductA");
-        return new ProductA();
-    }
-}
-class ProductB : Product
-{
-    public override Product CreateObj()
-    {
-        Console.WriteLine("ProductB");
-        return new ProductB();
-    }
-}
