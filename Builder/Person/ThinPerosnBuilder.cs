@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Builder.Person
 {
-    internal public  class ThinPerosnBuilder : Builder
+    public  class ThinPerosnBuilder : Builder
     {
         public ThinPerosnBuilder(string graphic, string pen) : base(graphic, pen) { }
 
