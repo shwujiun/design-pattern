@@ -41,3 +41,23 @@ class Guard : Player
         Console.WriteLine("後衛進攻");
     }
 }
+
+
+class Foreigner
+{
+    public string name { get; set; }
+    public void 進攻()
+    {
+        Console.WriteLine("外國人進攻");
+    }
+}
+
+class Translator : Player
+{
+    public Translator(string name):base(name) { }   
+    private Foreigner f = new Foreigner();
+    public override void Attack()
+    {
+        f.進攻();
+    }
+}
